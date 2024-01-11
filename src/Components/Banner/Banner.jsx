@@ -34,9 +34,9 @@ function Banner() {
                 </div>
                 <h1 className='description'>{movie ? movie.overview : ''}</h1>
             </div>
-        {/* <div className="fade_bottom">
-          <RowPost />
-        </div> */}
+          <div className='fade-bottom'>
+            {/* <RowPost /> */}
+          </div>
         </div>
     )
 }

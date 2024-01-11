@@ -1,0 +1,28 @@
+.footer-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+
+  
+  .footer-icons button {
+    background: none;
+    border: none;
+  }
+
+  .footer-div{
+    margin-left: -60rem;
+    margin-top: 5rem;
+  }
+
+  .btn-service{
+    border: 1px solid rgb(119, 111, 111);
+    color: rgb(88, 87, 87);
+    font-size: 1rem;
+  }
+  li{
+    /* 'fs-7 ms-0 text-white-50 */
+    font-size:0.6;
+    color: rgb(255, 254, 254);
+    margin-left: 0;
+  }

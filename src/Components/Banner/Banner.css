@@ -1,12 +1,12 @@
 .banner{
     background-size: cover;
     overflow: hidden;
-    height: 70vh;
+    height: 100vh;
     color: white;
 }
 
 .content{
-    padding-top: 140px;
+    padding-top: 200px;
     height: 190px;
     max-width: 360px;
 
@@ -16,6 +16,11 @@
     font-size: 3rem;
     font-weight: 800;
     padding-bottom: 0.3rem;
+}
+
+.fade-bottom{
+    height: 7.4rem;
+    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,.61)#111);
 }
 
 

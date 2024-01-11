@@ -9,6 +9,13 @@ import Youtube from 'react-youtube'
 function RowPost(props) {
   const [movie, setMovie] = useState([]);
   const [urlId,seturlId] = useState('')
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleImageClick = () => {
+    // Toggle the state on image click
+    setIsHovered(!isHovered);
+  };
+
 
   useEffect(()=>{
     const fetchData = async () =>{
@@ -35,16 +42,7 @@ function RowPost(props) {
 
   const handleMovie = (id) =>{
     console.log(id);
-    // axios.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
-    //     .then(response =>{
-    //     console.log(response.data);
-    //     if(response.data.results.length!==0){
-    //         seturlId(response.data.results[0])
-    //     }else{
-    //         console.log("not trailer available");
-    //         // alert('no trailer')
-    //     }
-    // })
+    setIsHovered(id)
     const fetchData = async ()=>{
         const res = await axios.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
         console.log(res);
@@ -57,13 +55,18 @@ function RowPost(props) {
 
   return (
     <div className='row'>
-         <h4 className='text-white ms-0 text-start mb-0 mt-2'>{props.title}</h4>
-      <div className='posters mt-0 mx-3'>
-        {movie && movie.map(obj => (
-          <img onClick={()=> handleMovie(obj.id)} className='poster' alt='poster' src={`${imageUrl + obj.backdrop_path}`} key={obj.id} />
+      <div className=''>
+      <h4 className='text-white ms-4 mb-1 fs-5 text-start mb-0 mt-2'>{props.title}</h4>
+        <div className='posters mx-3'>
+          {movie && movie.map(obj => (
+          <img onClick={()=> handleMovie(obj.id)} className='poster mx-1' alt='poster' src={`${imageUrl + obj.backdrop_path}`} key={obj.id} />
         ))}
+        </div>
       </div>
-        {urlId &&  <Youtube videoId={urlId.key} opts={opts} /> }
+      <div className='w-100'>
+      {urlId &&  <Youtube className='w-100' videoId={urlId.key} opts={opts} /> }
+
+      </div>
     </div>
   );
 }
